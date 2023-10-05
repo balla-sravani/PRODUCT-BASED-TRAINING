@@ -16,3 +16,4 @@ def quick(l,start,end):
 l=list(map(int,input().split()))
 quick(l,0,len(l)-1)
 print(l)
+
