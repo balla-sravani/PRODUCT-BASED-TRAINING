@@ -1,0 +1,79 @@
+class node:
+    def __init__(self,val=0):
+        self.val=val
+        self.next=None
+        self.prev=None
+class dll:
+    def __init__(self):
+        self.head=None
+        self.tail=None
+    def insertatbeg(self,data):
+        if self.head==None:
+            self.head=node(data)
+            self.tail=self.head
+            self.tail.next=self.head
+            self.head.prev=self.tail
+        else:
+            temp=node(data)
+            temp.next=self.head
+            self.head.prev=temp
+            self.head=temp
+            self.tail.next=self.head
+            self.head.prev=self.tail
+    def  display(self):
+        #print(self.head.val,self.head.prev.val,self.tail.val,self.tail.next.val,end="->")
+        print(self.head.val,end="->" )
+        temp=self.head.next
+        while(temp!=self.head):
+            print(temp.val,end="->")
+            temp=temp.next
+    def insertlast(self,data):
+        if self.head==None:
+            self.head=node(data)
+            tail.head=self.head
+            self.tail.next=self.head
+            self.head.prev=self.tail
+        else:
+            temp=node(data)
+            temp.prev=self.tail
+            self.tail.next=temp
+            self.tail=temp
+            self.tail.next=self.head
+            self.head.prev=self.tail
+            
+    def deletebeg(self):
+        if self.head==None:
+            return
+        self.head=self.head.next
+        self.tail.next=self.head
+        self.head.prev=self.tail
+    def deleteend(self):
+        if self.head==None:
+            return
+        self.tail=self.tail.prev
+        self.tail.next=self.head
+        self.head.prev=self.tail
+        
+        
+        
+        
+        
+                
+                
+l=[2,4,6,8,9]
+o=dll()
+'''for i in l:
+    o.insertlast(i)
+'''
+for i in l:
+    o.insertatbeg(i)
+o.display()
+print()
+o.deleteend()
+o.display()
+print()
+o.deletebeg()
+o.display()
+
+
+
